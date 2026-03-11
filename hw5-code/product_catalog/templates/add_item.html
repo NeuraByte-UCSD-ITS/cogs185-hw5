@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Item</h2>
+<form method="post" novalidate>
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="id_name" class="form-label">Name</label>
+        {{ form.name }}
+        {% if form.name.errors %}
+            <div class="text-danger">{{ form.name.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label for="id_serial_number" class="form-label">Serial Number</label>
+        {{ form.serial_number }}
+        {% if form.serial_number.errors %}
+            <div class="text-danger">{{ form.serial_number.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label for="id_quantity" class="form-label">Quantity</label>
+        {{ form.quantity }}
+        {% if form.quantity.errors %}
+            <div class="text-danger">{{ form.quantity.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label for="id_expiry_date" class="form-label">Expiry Date</label>
+        {{ form.expiry_date }}
+        {% if form.expiry_date.errors %}
+            <div class="text-danger">{{ form.expiry_date.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label for="id_notes" class="form-label">Notes (optional)</label>
+        {{ form.notes }}
+        {% if form.notes.errors %}
+            <div class="text-danger">{{ form.notes.errors }}</div>
+        {% endif %}
+    </div>
+    <button type="submit" class="btn btn-primary">Add Item</button>
+</form>
+{% endblock %}
